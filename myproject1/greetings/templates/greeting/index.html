@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fix Button Alignment</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            align-items: center;
+        }
+        .parent, .parent2 {
+            border: 2px solid black;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .data {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            width: 150px;
+            height: 50px;
+            background-color: white;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .predict {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .predict button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .predict button:hover {
+            background-color: #0056b3;
+        }
+        .new-div {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border: none;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .new-div2 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            border: 2px solid black;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .new-div .row, .new-div2 .row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            width: 100px;
+            height: 50px;
+            background-color: white;
+            border: 2px solid black;
+            border-radius: 8px;
+            font-size: 14px;
+            text-align: center;
+            margin: 0;
+            border-right: 2px solid black; /* Ensure right border */
+        }
+        .new-div .row + .row {
+            margin-left: -2px; /* Ensures rows touch */
+        }
+        .new-div .icon {
+            font-size: 24px; /* Increased font size for the icon */
+            padding: 5px; /* Reduced padding */
+            border: none; /* Removed border */
+            background-color: transparent; /* Transparent background */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="parent">
+            <div class="data">Add Data</div>
+            <div class="new-div">
+                <div class="row">Row 1</div>
+                <div class="row">Row 2</div>
+                <button class="icon">📤</button> <!-- Send icon -->
+            </div>
+        </div>
+
+        <div class="parent2">
+            <div class="predict">
+                <button>Predict Data</button>
+            </div>
+            <div class="new-div2">
+                <div class="row">Row 1</div>
+                <div class="row">Row 2</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
