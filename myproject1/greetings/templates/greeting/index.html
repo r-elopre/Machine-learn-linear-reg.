@@ -27,6 +27,14 @@
             align-items: center;
             gap: 10px;
         }
+                .sub-parent {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+
+        }
+
         .data {
             display: flex;
             justify-content: center;
@@ -153,7 +161,12 @@
 <body>
     <div class="container">
         <div class="parent">
-            <div class="data">Add Data</div>
+            <div class="sub-parent">
+                <div class="data">Add Data</div>
+                <span class="consumed">Consumed:</span>
+
+            </div>
+            
             <div class="new-div">
                     <div class="row">
                         <input type="text" class="text-field-row1" placeholder="Area">
