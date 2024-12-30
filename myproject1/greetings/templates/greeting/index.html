@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>House Price Prediction</title>
+    {% load static %} <!-- Add this line -->
     <style>
         body {
             display: flex;
@@ -18,7 +19,10 @@
             gap: 20px;
             align-items: center;
         }
-        .parent, .parent2 {
+        .parent{
+            position: absolute;
+            top: 20px; /* Margin from the top */
+            left: 20px; /* Margin from the left */
             border: 2px solid black;
             padding: 20px;
             border-radius: 8px;
@@ -26,6 +30,20 @@
             flex-direction: column;
             align-items: center;
             gap: 10px;
+            background-color: rgba(211, 211, 211, 0.5); /* Light gray with transparency */
+            z-index: 1000; /* Optional to keep it above other elements */
+        } 
+        
+        .parent2 {
+            border: 2px solid black;
+            padding: 40px; /* Increased padding for larger size */
+            border-radius: 12px; /* Slightly larger border radius */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Increased spacing between elements */
+            background-color: rgba(211, 211, 211, 0.8); /* Light gray with transparency */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
         }
         .sub-parent {
             display: flex;
@@ -47,7 +65,17 @@
             font-weight: bold;
             text-align: center;
         }
-        .predict button, .save button {
+        .predict button{
+            padding: 15px 30px; /* Larger button size */
+            font-size: 18px; /* Larger font size */
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        } 
+        
+        .save button {
             padding: 10px 20px;
             font-size: 16px;
             background-color: #007bff;
@@ -83,8 +111,35 @@
         }
         #data-count {
             font-size: 16px;
-            color: #555;
+            color: white;
+
         }
+
+        body {
+            background-image: url("{% static 'greeting/images/background.jpg' %}"); /* Use Django's static tag */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Avoids repeating the image */
+        }
+
+        .predict input {
+        width: 200px; /* Increased input width */
+        height: 50px; /* Increased input height */
+        font-size: 18px; /* Larger font size */
+        padding: 10px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+        #predicted-price {
+        font-size: 20px; /* Slightly larger text */
+        font-weight: bold;
+        color: #333;
+        text-align: center;
+    }
+
+
     </style>
     <script>
         let savedDataCount = 0; // Initialize saved data count
@@ -212,7 +267,7 @@
             </div>
             <div class="new-div">
                 <div class="row">
-                    <input type="text" id="area-input" placeholder="Enter Area (e.g., 100)">
+                    <input type="text" id="area-input" placeholder="Enter Amount (e.g., 100)">
                 </div>
                 <div class="row">
                     <input type="text" id="price-input" placeholder="Enter Price (e.g., 50000)">
@@ -226,7 +281,7 @@
         <!-- Prediction Section -->
         <div class="parent2">
             <div class="predict">
-                <input type="text" id="predict-area" placeholder="Enter Area to Predict">
+                <input type="text" id="predict-area" placeholder="Enter Area to amount">
                 <button onclick="predictPrice()">Predict Price</button>
             </div>
             <div class="row" id="predicted-price" style="font-size: 18px; font-weight: bold; color: #333; text-align: center;">
